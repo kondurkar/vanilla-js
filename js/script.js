@@ -21,26 +21,41 @@ navItems.forEach((navItem, index) => {
 let formBtn1 = document.getElementById('form-btn1');
 
 formBtn1.addEventListener('click', function(){
-    validateForm();
+    persondetailsForm();
 });
 
 //form validation
-function validateForm() {
-    let fullName = document.getElementById('fullName').value;
-    let email = document.getElementById('email').value;
-    let dob = document.getElementById('dob').value;
-    let gender = document.querySelector('input[name="gender"]:checked').value;
-    let adress = document.getElementById('adress').value;
+function persondetailsForm() {
     let regEmail = /^([a-z0-9\-_\.])+@(([a-z0-9\-_])+\.)+([a-z0-9]{2,4})$/i;
-   
-    if (fullName == "") {
-        alert("Name must be filled out");
+    let regName = /^(([a-z ]){2,})$/i;
+    let regAddress = /^[\d\w][\s\d\w\,\-\(\)\/\.]+[\d\w]$/i;
+
+    let persondetails = {
+        fullName : document.getElementById('fullName').value,
+        email : document.getElementById('email').value,
+        gender : document.querySelector('input[name="gender"]:checked').value,
+        adress : document.getElementById('adress').value,
+        checked : false
     }
-    
-    if ( !regEmail.test(email) ) {
-        alert("email must be filled out");
+
+    if (!regName.test(persondetails.fullName)) {
+        alert("please enter a valid name");
     }
+
+    if (!regEmail.test(persondetails.email)) {
+        alert("please enter a valid Email");
+    }
+
+    if (!regAddress.test(persondetails.adress)) {
+        alert("please enter a valid Email");
+    }
+
+
+    persondetails.checked = true;
+    window.localStorage.setItem('personDet', JSON.stringify(persondetails));
+
 }
 
 //fetch values
+
 
