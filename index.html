@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container main-container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12">
                 <div class="panel">
                     <h1 class="heading text-center">Curriculum Vitae</h1>
-                    <ul class="nav justify-content-center">
+                    <ul class="nav nav-pills justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link active" href="javascript:;">Personal Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:;">Educational Details</a>
+                            <a class="nav-link disabled" href="javascript:;">Educational Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:;">Work Experience</a>
+                            <a class="nav-link disabled" href="javascript:;">Work Experience</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="javascript:;">Show Details</a>
@@ -34,35 +34,46 @@
                             <div class="tab_form">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name" >
+                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name" onblur="inputFunction(this.type,this.value,this.id)">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Email address</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" >
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" onblur="inputFunction(this.type,this.value,this.id)">
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 
                                 <div class="form-group">
                                     <div>Gender</div>  
                                     <label class="radio-inline" for="male">
-                                        <input type="radio" name="gender" id="male" checked>male
+                                        <input type="radio" name="gender" id="male" value="male" checked onblur="inputFunction(this.type,this.value,this.id, this.name)">male
                                     </label>
                                     <label class="radio-inline" for="female">
-                                        <input type="radio" name="gender" id="female">female
+                                        <input type="radio" name="gender" id="female" value="female" onblur="inputFunction(this.type,this.value,this.id, this.name)">female
                                     </label>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="adress">Adress</label>
-                                    <textarea class="form-control" rows="3" id="adress" ></textarea>
+                                    <textarea class="form-control" rows="3" id="adress" onblur="inputFunction(this.type,this.value,this.id)"></textarea>
                                 </div>
                                 
                                 <button type="button" id="form-btn1" class="btn btn-primary">Next</button>
                             </div>
                         </div>
                         <div id="menu1" class="tab-pane fade">
-                            <h3>Menu 1</h3>
+                            <h4 class="heading text-center">Educational Details</h4>
+                            <div class="tab_form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Course Name">
+                                    <input type="text" class="form-control" placeholder="Year of passing">
+                                    <button type="button" class="addCourse" class="btn btn-primary">Add Course</button>
+                                </div>
+
+                                
+                                
+                                <button type="button" id="form-btn2" class="btn btn-primary">Next</button>
+                            </div>
                             
                         </div>
                         <div id="menu2" class="tab-pane fade">

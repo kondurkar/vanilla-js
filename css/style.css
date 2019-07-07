@@ -9,3 +9,11 @@
 .heading{
     margin-top: 20px;
 }
+
+.nav-link.disabled{
+    pointer-events: none;
+}
+
+.main-container{
+    padding-bottom: 50px;
+}
